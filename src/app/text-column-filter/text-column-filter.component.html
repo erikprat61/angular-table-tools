@@ -1,34 +1,33 @@
-<div class='mod-filter-outer-container'>
-  <mat-icon
-    class='clickable'
-    [style.opacity]='iconOpacity'
-    [matMenuTriggerFor]='filterMenu'
-    #menuTrigger='matMenuTrigger'>filter_list
-  </mat-icon>
-  <mat-menu #filterMenu='matMenu'>
-    <div class='mod-filter-inner-container' (click)='$event.stopPropagation()'>
-      <div class='mod-filter-row'>
-        <h5>Filter by <span class='mod-caps'>{{columnName.replace('-', '&nbsp;')}}</span></h5>
-        <mat-icon class='clickable' (click)='menuTrigger.closeMenu()'>close</mat-icon>
-      </div>
-      <form [formGroup]='fg' (ngSubmit)='onSubmit();menuTrigger.closeMenu()'>
-        <mat-form-field class='form-field'>
-          <mat-label>Filter Type</mat-label>
-          <mat-select formControlName='type'>
-            <mat-option value='isExactly'>Is Exactly</mat-option>
-            <mat-option value='contains'>Contains</mat-option>
-            <mat-option value='doesNotContain'>Does Not Contain</mat-option>
-          </mat-select>
-        </mat-form-field>
-        <mat-form-field class='form-field'>
-          <mat-label>Filter Value</mat-label>
-          <input matInput formControlName='value' />
-        </mat-form-field>
-        <div class='mod-filter-buttons'>
-          <button mat-button (click)='onClear();menuTrigger.closeMenu()'>CLEAR</button>
-          <button mat-raised-button type='submit' color='primary'>FILTER</button>
+<div>
+    <mat-icon style="cursor: pointer;" [style.opacity]='iconOpacity' [matMenuTriggerFor]='filterMenu'
+        #menuTrigger='matMenuTrigger'>filter_list
+    </mat-icon>
+    <mat-menu #filterMenu='matMenu'>
+        <div style="padding: 10px;" (click)='$event.stopPropagation()'>
+            <div style="display: flex; justify-content: space-between; padding-bottom: 10px;">
+                <div style="color: rgba(255, 255, 255, 0.87); font-size: larger;">Filter by <span>{{columnName.replace('-',
+                        '&nbsp;')}}</span></div>
+                <mat-icon style="color: rgba(255, 255, 255, 0.87);" style="cursor: pointer;"
+                    (click)='menuTrigger.closeMenu()'>close</mat-icon>
+            </div>
+            <form [formGroup]='fg' (ngSubmit)='onSubmit();menuTrigger.closeMenu()'>
+                <mat-form-field style="width: 100%;">
+                    <mat-label>Filter Type</mat-label>
+                    <mat-select formControlName='type'>
+                        <mat-option value='isExactly'>Is Exactly</mat-option>
+                        <mat-option value='contains'>Contains</mat-option>
+                        <mat-option value='doesNotContain'>Does Not Contain</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field style="width: 100%;">
+                    <mat-label>Filter Value</mat-label>
+                    <input matInput formControlName='value' />
+                </mat-form-field>
+                <div style="display: flex; justify-content: space-between;">
+                    <button mat-raised-button type='submit' color='primary'>FILTER</button>
+                    <button mat-button (click)='onClear();menuTrigger.closeMenu()'>CLEAR</button>
+                </div>
+            </form>
         </div>
-      </form>
-    </div>
-  </mat-menu>
+    </mat-menu>
 </div>

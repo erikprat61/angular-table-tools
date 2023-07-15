@@ -3,30 +3,49 @@
 
     <!-- ISBN Column -->
     <ng-container matColumnDef="isbn">
-      <th mat-header-cell *matHeaderCellDef> <div style="display: flex;">
-        ISBN 
-        <app-sort-column [columnName]="'isbn'"></app-sort-column>
-        <app-text-column-filter [columnName]="'isbn'"></app-text-column-filter>
-      </div>
+      <th mat-header-cell *matHeaderCellDef>
+        <div style="display: flex;">
+          ISBN
+          <app-sort-column [columnName]="'isbn'"></app-sort-column>
+          <app-text-column-filter [columnName]="'isbn'"></app-text-column-filter>
+        </div>
       </th>
       <td mat-cell *matCellDef="let element"> {{element.isbn}} </td>
     </ng-container>
 
     <!-- Title Column -->
     <ng-container matColumnDef="title">
-      <th mat-header-cell *matHeaderCellDef> Title </th>
+      <th mat-header-cell *matHeaderCellDef>
+        <div style="display: flex;">
+          Title
+          <app-sort-column [columnName]="'title'"></app-sort-column>
+          <app-text-column-filter [columnName]="'title'"></app-text-column-filter>
+        </div>
+      </th>
       <td mat-cell *matCellDef="let element"> {{element.title}} </td>
     </ng-container>
 
     <!-- Author Column -->
     <ng-container matColumnDef="author">
-      <th mat-header-cell *matHeaderCellDef> Author </th>
+      <th mat-header-cell *matHeaderCellDef>
+        <div style="display: flex;">
+          Author
+          <app-sort-column [columnName]="'author'"></app-sort-column>
+          <app-text-column-filter [columnName]="'author'"></app-text-column-filter>
+        </div>
+      </th>
       <td mat-cell *matCellDef="let element"> {{element.author}} </td>
     </ng-container>
 
     <!-- Publish Date Column -->
     <ng-container matColumnDef="publishDate">
-      <th mat-header-cell *matHeaderCellDef> Publish Date </th>
+      <th mat-header-cell *matHeaderCellDef>
+        <div style="display: flex;">
+          Publish Date
+          <app-sort-column [columnName]="'publishDate'"></app-sort-column>
+          <app-text-column-filter [columnName]="'publish-date'"></app-text-column-filter>
+        </div>
+      </th>
       <td mat-cell *matCellDef="let element"> {{element.publishDate}} </td>
     </ng-container>
 
