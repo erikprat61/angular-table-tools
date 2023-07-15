@@ -1,11 +1,19 @@
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiMockService {
 
-  getBooks(isbn?: string, title?: string, author?: string, publishDate?: string): Book[] {
+  constructor(private http: HttpClient) { }
+
+  search(queryParams: string): Observable<Book[]> {
+    return this.http.get<Book[]>(`https://abcbookstore.com/api/books?${queryParams}`);
+  }
+
+  getBooks(isbn?: string, title?: string, author?: string, publishDate?: string): Observable<Book[]> {
     let books = [
       {
         isbn: '1234567890',
@@ -75,7 +83,7 @@ export class ApiMockService {
     if (publishDate) {
       books = books.filter((book) => book.publishDate === publishDate);
     }
-    return books;
+    return of(books);
   }
 }
 
