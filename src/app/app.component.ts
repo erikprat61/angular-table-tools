@@ -21,7 +21,7 @@ export class AppComponent implements OnInit, OnDestroy {
     this.routeUpdatesSubscription = this.router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe(() => {
-        this.apiService.search(this.router.url.split('?')[1] ?? '');
+        this.books$ = this.apiService.search(this.router.url.split('?')[1] ?? '');
       });
   }
 
