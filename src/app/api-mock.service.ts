@@ -1,16 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiMockService {
 
-  constructor(private http: HttpClient) { }
-
   search(queryParams: string): Observable<Book[]> {
-    return this.http.get<Book[]>(`https://abcbookstore.com/api/books?${queryParams}`);
+    console.log("An example of the API GET request that you could send: ", `https://abcbookstore.com/api/books?${queryParams}`)
+    return this.getBooks();
   }
 
   getBooks(isbn?: string, title?: string, author?: string, publishDate?: string): Observable<Book[]> {

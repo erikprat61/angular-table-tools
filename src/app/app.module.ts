@@ -8,7 +8,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
-import { HttpClientModule } from '@angular/common/http';
 
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -29,8 +28,6 @@ import { RouterModule } from '@angular/router';
     BrowserAnimationsModule,
     CommonModule,
     RouterModule.forRoot([]),
-
-    HttpClientModule,
 
     MatTableModule,
     MatIconModule,
