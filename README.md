@@ -1,27 +1,17 @@
-# AngularTableTools
+# Angular Table Tools
+This solution provides a method to incorporate Angular Material table column sorting and filtering using custom forms. It leverages the URL parameter string to maintain the filter state effectively. Each filter in the application simply updates the URL parameters. The table actively listens for changes in the route and automatically runs a search again its data whenever a change in the route is detected.
+![image](https://github.com/erikprat61/angular-table-tools/assets/1373059/c3d23429-bcf6-4bc0-b533-b6ca23212d18)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.4.
+You can even pass the url string directly to the API you're using to populate this table:
+``` typescript
+ngOnInit(): void {
+  this.routeUpdatesSubscription = this.router.events
+    .pipe(filter((event) => event instanceof NavigationEnd))
+    .subscribe(() => {
+      this.books$ = this.apiService.search(this.router.url.split('?')[1] ?? '');
+    });
+}
+```
+*app.component.ts - line: 20*
 
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+This will remove the need for doing any translation from the url parameters to an object. Though, if you want it'd be just as easy to translate it to a GraphQL query.
