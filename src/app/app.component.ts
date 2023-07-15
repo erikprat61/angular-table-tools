@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ApiMockService, Book } from './api-mock.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angular-table-tools';
+  books: Book[] = [];
+
+  constructor(private apiService: ApiMockService) {}
+
+  ngOnInit() {
+    this.books = this.apiService.getBooks();
+  }
 }
