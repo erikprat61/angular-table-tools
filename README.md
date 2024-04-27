@@ -12,6 +12,6 @@ ngOnInit(): void {
     });
 }
 ```
-*app.component.ts - line: 20*
+[*app.component.ts - line: 20*](https://github.com/erikprat61/angular-table-tools/blob/master/src/app/app.component.ts#L20)
 
 This will remove the need for doing any translation from the url parameters to an object. Though, if you want it'd be just as easy to translate it to a GraphQL query.
